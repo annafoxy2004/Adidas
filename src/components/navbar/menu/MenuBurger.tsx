@@ -26,14 +26,19 @@ const MenuBurger: React.FC<MenuProps> = ({
     AOS.init();
   }, []);
   return (
-    <div className={menuActive ? "menu2 active" : "menu"} onClick={()=>setMenuActive(false)}>
+    <div
+      className={menuActive ? "menu2 active" : "menu"}
+      onClick={() => setMenuActive(false)}
+    >  
       <div className="blur" />
-      <div className="menu__content" onClick={e => e.stopPropagation()}>
+      <div className="menu__content" onClick={(e) => e.stopPropagation()}>
         <div className="menu__header">{header}</div>
-        <ul>
+        <ul data-aos="fade-right">
           {items.map((item, index) => (
             <li key={index} className="p-6" data-aos="fade-right">
-              <a className="text-xl" href={item.href}>{item.value}</a>
+              <a className="text-xl" href={item.href} data-aos="fade-right">
+                {item.value}
+              </a>
             </li>
           ))}
         </ul>
@@ -42,4 +47,4 @@ const MenuBurger: React.FC<MenuProps> = ({
   );
 };
 
-export default MenuBurger ;
+export default MenuBurger;
