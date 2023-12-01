@@ -1,20 +1,20 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import MenuBurger from "./menu/MenuBurger";
+//@ts-ignore
 import logo from "./logo.png";
-import {
-  Avatar,
-  Box,
-  IconButton,
-  Menu,
-  MenuItem,
-  MenuList,
-  Tooltip,
-  Typography,
-} from "@mui/material";
 import { MenuBook } from "@mui/icons-material";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth/AuthContextProvider";
+import Button from '@mui/material/Button';
+import ClickAwayListener from '@mui/material/ClickAwayListener';
+import Grow from '@mui/material/Grow';
+import Paper from '@mui/material/Paper';
+import Popper from '@mui/material/Popper';
+import MenuItem from '@mui/material/MenuItem';
+import MenuList from '@mui/material/MenuList';
+import Stack from '@mui/material/Stack';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 
 const pages = [{ title: "Products", link: "/", id: 1 }];
 
@@ -51,43 +51,50 @@ function Navbar() {
   // }
 
   useEffect(() => {
-    // При рождении компонента получаем значение из локального хранилища
     const storedUser = localStorage.getItem('email');
     if (storedUser) {
       setCurrentUser(storedUser);
     }
   }, []);
 
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   const [menuActive, setMenuActive] = useState(false);
-
-  const items = [
-    { value: "HomePage", href: "/" },
-    { value: "Shop", href: "/shop" },
-    { value: "Blog", href: "/blog" },
-    { value: "Sale", href: "/sale" },
-    { value: "Contact us", href: "/contactUs" },
-    { value: "Quiz", href: "/quiz" },
-  ];
 
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleClick = (e) => {
-    setAnchorEl(e.currentTarget);
+  const [open, setOpen] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpen(false);
   };
+
+  function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === 'Escape') {
+      setOpen(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(open);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+
+    prevOpen.current = open;
+  }, [open]);
+
   
   return (
     <div>
@@ -103,22 +110,68 @@ function Navbar() {
         <div className="nav_logo">
           <img className="nav_logo_img" src={logo} alt="logo" />
         </div>
-        <div className="nav_auth">
-          <Link to={"/register"}>Register</Link>
-          <Link to={"/login"}>Login</Link>
-          <Link  to={"/"} onClick={() => handleLogout()}>
-            Logout
-          </Link>
-          <Link>
+        <div className="nav_auth flex justify-between">
+        <Link className="text-white p-3">
             {currentUser ? currentUser: "No user"}
           </Link>
+          <div>
+        <Button
+          ref={anchorRef}
+          id="composition-button"
+          aria-controls={open ? 'composition-menu' : undefined}
+          aria-expanded={open ? 'true' : undefined}
+          aria-haspopup="true"
+          onClick={handleToggle}
+        >
+          <AccountCircleOutlinedIcon color="disabled" fontSize="large" />
+        </Button>
+        <Popper
+          open={open}
+          anchorEl={anchorRef.current}
+          role={undefined}
+          placement="bottom-start"
+          transition
+          disablePortal
+        >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === 'bottom-start' ? 'left top' : 'left bottom',
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList
+                    autoFocusItem={open}
+                    id="composition-menu"
+                    aria-labelledby="composition-button"
+                    onKeyDown={handleListKeyDown}
+                  >
+                    <MenuItem onClick={handleClose}><Link to={"/register"} className="text-indigo-700">Register</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link to={"/login"} className="text-indigo-700">Login</Link></MenuItem>
+                    <MenuItem onClick={handleClose}><Link  to={"/"} onClick={() => handleLogout()} className="text-indigo-700">
+            Logout
+          </Link></MenuItem>
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
+      </div>
+          
+          
+          
+          
         </div>
       </nav>
       <MenuBurger
         menuActive={menuActive}
         setMenuActive={setMenuActive}
         header={"Adidas"}
-        items={items}
+        
       />
     </div>
   );
