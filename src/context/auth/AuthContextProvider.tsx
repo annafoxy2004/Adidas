@@ -11,6 +11,7 @@ import React, {
 import { AuthValuesTypes, IAuth } from "./auth.types";
 import { ADMINS } from "../../helpers/consts";
 import { useNavigate } from "react-router-dom";
+import { notify } from "../../components/alerts/Toastify";
 
 export const authContext = createContext<AuthValuesTypes | null>(null);
 
@@ -41,6 +42,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       console.log(res, "register response");
     } catch (err: any) {
       setError(err.response?.data?.detail || "An error occurred");
+      notify(err.code.split("/")[1], "error");
       console.log(err);
     } finally {
       setLoading(false);
@@ -58,11 +60,13 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
       setCurrentUser(email);
+      checkAuth()
       console.log(res);
       navigate("/");
     } catch (err: any) {
       console.log(err);
       setError(err.response.data.detail || "An error occurred");
+      notify(err.code.split("/")[1], "error");
     }
   }
 
@@ -101,23 +105,28 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
   }
 
   function handleLogout() {
-    localStorage.removeItem("tokens");
-    localStorage.removeItem("email");
-    setCurrentUser(false);
-    navigate("/");
-    console.log("logout");
+    try {
+      localStorage.removeItem("tokens");
+      localStorage.removeItem("email");
+      setCurrentUser(false);
+      navigate("/");
+      console.log("logout");
+    } catch (e: any) {
+      notify(e.code.split("/")[1], "error");
+    }
   }
 
-  // function isAdmin() {
-  //   if (!currentUser) {
-  //     return false;
-  //   }
-  //   return ADMINS.includes(currentUser.email!);
-  // }
+  function isAdmin() {
+    let user = localStorage.getItem("email")
+    if (!user) {
+      return false;
+    }
+    return ADMINS.includes(user);
+  }
 
   const contextValue: AuthValuesTypes = {
     currentUser,
-    // isAdmin,
+    isAdmin,
     error,
     loading,
     setError: setError as Dispatch<SetStateAction<string | boolean>>,
