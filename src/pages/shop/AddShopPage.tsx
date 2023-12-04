@@ -1,4 +1,4 @@
-import { notify } from "../../components/alerts/Toastify";
+import { NOTIFY_TYPES, notify } from "../../components/alerts/Toastify";
 import { useProducts } from "../../context/products/ProductsContextProvider";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -24,7 +24,7 @@ const AddShopPage = () => {
       !product.description.trim() ||
       !product.image.trim()
     ) {
-      notify("Заполните поля!");
+      notify("Заполните поля!", NOTIFY_TYPES.warning);
       return;
     }
     addProduct(product);

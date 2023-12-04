@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Toastify from "./components/alerts/Toastify";
+// import Toastify from "./components/alerts/Toastify";
 import { BrowserRouter } from "react-router-dom";
 import AuthContextProvider from "./context/auth/AuthContextProvider";
 import ProductsContextProvider from "./context/products/ProductsContextProvider";
@@ -16,7 +16,7 @@ root.render(
     <ProductsContextProvider>
       <AuthContextProvider>
         <App />
-        <Toastify />
+        {/* <Toastify /> */}
       </AuthContextProvider>
       </ProductsContextProvider>
     </BrowserRouter>

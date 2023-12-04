@@ -11,7 +11,7 @@ import React, {
 import { AuthValuesTypes, IAuth } from "./auth.types";
 import { ADMINS } from "../../helpers/consts";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../components/alerts/Toastify";
+import { notify, NOTIFY_TYPES } from "../../components/alerts/Toastify";
 
 export const authContext = createContext<AuthValuesTypes | null>(null);
 
@@ -40,9 +40,11 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       const res = await axios.post(`${API}/account/register/`, formData);
       navigate("/");
       console.log(res, "register response");
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       setError(err.response?.data?.detail || "An error occurred");
-      notify(err.code.split("/")[1], "error");
+      // notify(err.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
       console.log(err);
     } finally {
       setLoading(false);
@@ -60,7 +62,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       localStorage.setItem("tokens", JSON.stringify(res.data));
       localStorage.setItem("email", email);
       setCurrentUser(email);
-      checkAuth()
+      checkAuth();
       console.log(res);
       navigate("/");
     } catch (err: any) {
@@ -117,7 +119,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
   }
 
   function isAdmin() {
-    let user = localStorage.getItem("email")
+    let user = localStorage.getItem("email");
     if (!user) {
       return false;
     }

@@ -4,12 +4,21 @@ import logo from "../navbar/logo.png";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
-import Prefooter from "./Prefooter";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <>
-    <Prefooter/>
+    <div className=" bg-[#8cf02e]">
+      <div className="flex items-start h-96 pt-6">
+        <div className="flex flex-row justify-center w-screen">
+          <p className="text-5xl font-medium">JOIN OUR ADICLUB & GET 15% OFF</p>
+          <button className="border border-red-950">
+            <Link to={"/register"}>sign up for free</Link>
+          </button>
+        </div>
+      </div>
+    </div>
 <div className="main"></div>
 <div className="footer">
   <div className="bubbles">
