@@ -13,13 +13,13 @@ const AddShopPage = () => {
     description: "",
   });
 
-//   const handleChange = (e: any) => {
-//     setProduct({
-//       ...product,
-//       [e.target.name]: e.target.value,
-//     });
-//     console.log(product);
-//   };
+  //   const handleChange = (e: any) => {
+  //     setProduct({
+  //       ...product,
+  //       [e.target.name]: e.target.value,
+  //     });
+  //     console.log(product);
+  //   };
 
   const nav = useNavigate();
 
@@ -36,22 +36,53 @@ const AddShopPage = () => {
       return;
     }
     addProduct(product);
-    nav("/");
+    nav("/shop");
   };
 
-  return <div>
-    <h2>Add form</h2>
-    <form onSubmit={handleSubmit}>
-    <input
+  return (
+    <div>
+      <h2>Add form</h2>
+      <form onSubmit={handleSubmit}>
+        <input
           value={product.title}
           placeholder="Title"
+          onChange={(e) => setProduct({ ...product, title: e.target.value })}
+          type="text"
+        />
+        <input
+          value={product.category}
+          placeholder="Category"
+          onChange={(e) => setProduct({ ...product, category: e.target.value })}
+          type="text"
+        />
+        <input
+          value={product.description}
+          placeholder="Description"
           onChange={(e) =>
-            setProduct({ ...product, title: e.target.value })
+            setProduct({ ...product, description: e.target.value })
           }
           type="text"
         />
-    </form>
-  </div>;
+        <input
+          value={product.image}
+          placeholder="Image"
+          onChange={(e) => setProduct({ ...product, image: e.target.value })}
+          type="text"
+        />
+        <input
+          value={product.price}
+          placeholder="Price"
+          onChange={(e) =>
+            setProduct({ ...product, price: parseInt(e.target.value) })
+          }
+          type="number"
+        />
+        <button type="submit">
+            add
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default AddShopPage;
