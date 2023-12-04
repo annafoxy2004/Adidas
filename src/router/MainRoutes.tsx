@@ -14,7 +14,7 @@ const MainRoutes = () => {
       <Routes>
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/addshop" element={checkUserLogin() ? <AddShopPage /> : null}  />
-        <Route path="/shop/editshop" element={checkUserLogin() ? <EditShopPage /> : null}  />
+        <Route path="/shop/editshop/:id" element={checkUserLogin() ? <EditShopPage /> : null}  />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<HomePage />}/>
