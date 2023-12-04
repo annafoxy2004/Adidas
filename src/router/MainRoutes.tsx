@@ -12,6 +12,7 @@ const MainRoutes = () => {
     <div>
       <Routes>
         <Route path="/shop" element={<ShopPage />} />
+        <Route path="/shop/add" element={<AddShopPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<HomePage />}/>

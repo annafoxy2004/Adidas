@@ -1,6 +1,6 @@
 export const ADMINS = ["annafoxy@gmail.com"];
 
-export const API = "http://localhost:8000/products";
+export const API = "http://localhost:8000/product";
 
 export const categories = [
   {
