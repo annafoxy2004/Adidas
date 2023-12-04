@@ -26,6 +26,9 @@ const Product = () => {
             <Button variant="contained" color="info" size="small">
               Details
             </Button>
+            </Link>
+          <Link to={`/shop/editshop/${product.id}`}>
+            <button>Update</button>
           </Link>
         </div>
       ))}

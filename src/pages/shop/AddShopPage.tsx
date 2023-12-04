@@ -13,14 +13,6 @@ const AddShopPage = () => {
     description: "",
   });
 
-  //   const handleChange = (e: any) => {
-  //     setProduct({
-  //       ...product,
-  //       [e.target.name]: e.target.value,
-  //     });
-  //     console.log(product);
-  //   };
-
   const nav = useNavigate();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -67,7 +59,7 @@ const AddShopPage = () => {
           value={product.image}
           placeholder="Image"
           onChange={(e) => setProduct({ ...product, image: e.target.value })}
-          type="text"
+          type="url"
         />
         <input
           value={product.price}

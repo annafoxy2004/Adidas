@@ -1,5 +1,6 @@
 import React from "react";
 import { ToastContainer, ToastOptions, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type status = "error" | "success";
 
