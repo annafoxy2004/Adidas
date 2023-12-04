@@ -4,6 +4,7 @@ import { IProductsValues, STATE, ACTION, IProduct } from "./products.types";
 import axios from "axios";
 import { API } from "../../helpers/consts";
 import { IAuth } from "context/auth/auth.types";
+import { useNavigate } from "react-router-dom";
 
 export const productsContext = createContext<IProductsValues | null>(null);
 
@@ -33,6 +34,7 @@ export function useProducts() {
 }
 
 const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
+  const nav = useNavigate()
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
 
   async function getProducts() {
@@ -67,6 +69,10 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
     });
   }
 
+  async function showDetailsPage(id: string) {
+    nav("/shop/details/:id")
+  }
+
     return (
       <productsContext.Provider
         value={{
@@ -77,6 +83,7 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
           editProduct,
           products: state.products,
           oneProduct: state.oneProduct,
+          showDetailsPage
         }}
       >
         {children}

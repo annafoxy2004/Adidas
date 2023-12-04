@@ -4,10 +4,12 @@ import logo from "../navbar/logo.png";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
+import Prefooter from "./Prefooter";
 
 function Footer() {
   return (
     <>
+    <Prefooter/>
 <div className="main"></div>
 <div className="footer">
   <div className="bubbles">
