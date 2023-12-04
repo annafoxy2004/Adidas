@@ -1,4 +1,4 @@
-import { useProducts } from "context/products/ProductsContextProvider";
+import { useProducts } from "../../context/products/ProductsContextProvider";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -43,36 +43,41 @@ const EditShopPage = () => {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name="title"
           value={product.title}
           placeholder="Title"
           onChange={handleChange}
         />
         <input
           type="text"
+          name="category"
           value={product.category}
           placeholder="Category"
           onChange={handleChange}
         />
         <input
           type="text"
+          name="description"
           value={product.description}
           placeholder="Description"
           onChange={handleChange}
         />
         <input
           type="url"
+          name="image"
           value={product.image}
           placeholder="Image"
           onChange={handleChange}
         />
         <input
           type="number"
+          name="price"
           value={product.price}
           placeholder="Price"
           onChange={handleChange}
         />
-      </form>
       <button type="submit">Save</button>
+      </form>
     </div>
   );
 };
