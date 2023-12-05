@@ -146,7 +146,7 @@ function Navbar() {
                 >
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
-                      {userRole == "user"? (
+                      {userRole == "user" || "admin" ? (
                         <MenuList
                           autoFocusItem={open}
                           id="composition-menu"

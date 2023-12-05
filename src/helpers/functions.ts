@@ -1,7 +1,9 @@
 import { IComment, IProduct } from "context/products/products.types";
 
 export const getUserRole = () => {
-  const user = localStorage.getItem("email");
+  const userr = localStorage.getItem("email");
+  //@ts-ignore
+  const user = JSON.parse(userr)
 
   if (!user) {
     return "not logged in"; 
