@@ -4,6 +4,7 @@ nav {
   background-color: gray;
   position: sticky;
   z-index: 50;
+  top: 0; 
   display: flex;
   align-items: center;
   flex-direction: row;

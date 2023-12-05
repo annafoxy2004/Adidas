@@ -6,9 +6,11 @@ import { useCartContext } from "../../context/cart/CartContextProvider";
 import { Button } from "@mui/material";
 import ProductLike from "./ProductLike";
 import { getAuthUser, getUserRole } from "helpers/functions";
+import { useFavoriteContext } from "../../context/favorites/FavoritesContextProvider";
 
 const Product = () => {
   const { getProducts, products, deleteProduct, oneProduct } = useProducts();
+  const {isAlreadyInFavorit, addProductToFavorite, deleteProductFromFavorite} = useFavoriteContext()
   const { addProductToCart, isAlreadyInCart, deleteProductFromCart } =
     useCartContext();
   const { currentUser } = useAuth();
@@ -27,6 +29,7 @@ const Product = () => {
           <img src={product.image} alt="img" />
           <p>Price: {product.price}</p>
           <p>Title: {product.title}</p>
+          <p>Gender: {product.gender}</p>
           {currentUser && (
             <div>
               {isAlreadyInCart(+product.id!) ? (
@@ -41,6 +44,19 @@ const Product = () => {
             </div>
           )}
 <ProductLike product={product} productId={product.id}/>
+          {currentUser && (
+            <div>
+              {isAlreadyInFavorit(+product.id!) ? (
+                <button onClick={() => deleteProductFromFavorite(+product.id!)}>
+                  delet on favorite
+                </button>
+              ) : (
+                <button onClick={() => addProductToFavorite(product)}>
+                  add to favorite
+                </button>
+              )}
+            </div>
+          )}
           <button onClick={() => deleteProduct(product.id!)}>Delete</button>
           <Link to={`/shop/details/${product.id}`}>
             <Button variant="contained" color="info" size="small">

@@ -14,12 +14,14 @@ import AlmatyProducts from "../pages/map/AlmatyProducts";
 import MoscowProducts from "../pages/map/MoscowProducts";
 import CartPage from "../pages/cart/CartPage";
 import SalesPage from "../pages/SalesPage";
+import FavoritePage from "../pages/favorite/FavoritePage";
 
 const MainRoutes = () => {
   const userRole = getUserRole();
   return (
     <div>
       <Routes>
+      <Route path="/favourites" element={< FavoritePage />} />
       <Route path="/cart" element={<CartPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route

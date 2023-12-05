@@ -1,146 +1,58 @@
 {
   "product": [
     {
-      "title": "er",
-      "price": 2,
-      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
-      "description": "qwe",
-      "gender": "women",
-      "bishkek": "",
-      "astana": "",
-      "almaty": "",
-      "moscow": "on",
-      "id": 3,
-      "likes": [
-        {
-          "id": 1701806435499,
-          "user": "5kanolesya@gmail.com"
-        }
-      ]
-    },
-    {
-      "title": "wr",
-      "price": 322,
-      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
-      "description": "er",
-      "gender": "men",
-      "bishkek": "on",
-      "astana": "",
-      "almaty": "",
-      "moscow": "on",
-      "id": 4,
-      "likes": [
-        {
-          "id": 1701806437658,
-          "user": "5kanolesya@gmail.com"
-        }
-      ],
-      "sale": "on",
-      "discount": 0,
-      "": "10"
-    },
-    {
-      "title": "qwerty",
-      "price": 1234567890,
-      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
-      "description": "zxcvbnm",
-      "gender": "men",
-      "bishkek": "",
-      "astana": "on",
-      "almaty": "",
-      "moscow": "",
-      "id": 5,
-      "likes": [
-        {
-          "id": 1701795833095,
-          "user": "foxy@gmail.com"
-        },
-        {
-          "id": 1701806439850,
-          "user": "5kanolesya@gmail.com"
-        }
-      ]
-    },
-    {
-      "title": "pl",
-      "price": 100,
-      "image": "https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9lZDg5NjkwMjhkYmYwM2QxYzVmNTViYmIxMGU3ZDgxNT9zaXplPTEwMCZkZWZhdWx0PXJldHJvIn0.QiStKEifb0nWLndS-6SLWP3c2E1tiVjTTEKPFH_65wg",
-      "description": "zxcvbnm",
-      "gender": "women",
-      "bishkek": "on",
-      "astana": "",
-      "almaty": "",
-      "moscow": "",
-      "sale": "on",
-      "discount": 0,
-      "id": 6,
-      "": "10"
-    },
-    {
-      "title": "qwerty",
-      "price": 100,
+      "title": "qwer",
+      "price": 678,
       "image": "https://srv.buysellads.com/static/30242/0cb80bb72aaa688ad3b9fa0e955e4313260d52e3",
-      "description": "qwerty",
+      "description": "ert",
       "gender": "women",
-      "bishkek": "",
+      "bishkek": "on",
       "astana": "",
-      "almaty": "on",
+      "almaty": "",
       "moscow": "",
-      "sale": "on",
-      "discount": 0,
-      "id": 7,
-      "": "10",
+      "sale": "",
+      "discount": "",
+      "id": 1,
       "likes": [
         {
-          "id": 1701811286577,
+          "id": 1701815908439,
           "user": "foxy@gmail.com"
         }
       ]
     },
     {
-      "title": "lol",
-      "price": 100,
-      "image": "https://srv.buysellads.com/static/30242/db18ae70b35ca9f84165bec96d3755a7b7511657",
-      "description": "d",
+      "title": "dfghj",
+      "price": 98,
+      "image": "https://srv.buysellads.com/static/30242/0cb80bb72aaa688ad3b9fa0e955e4313260d52e3",
+      "description": "dfgh",
       "gender": "men",
       "bishkek": "",
       "astana": "on",
       "almaty": "",
-      "moscow": "",
+      "moscow": "on",
       "sale": "on",
-      "discount": 0,
-      "id": 8,
-      "": "10"
+      "discount": "",
+      "id": 2,
+      "likes": [
+        {
+          "id": 1701816537885,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
-      "title": "ass",
-      "price": 100,
-      "image": "https://srv.buysellads.com/static/30242/db18ae70b35ca9f84165bec96d3755a7b7511657",
-      "description": "dfg",
+      "title": "rtyu",
+      "price": 567,
+      "image": "https://srv.buysellads.com/static/30242/0cb80bb72aaa688ad3b9fa0e955e4313260d52e3",
+      "description": "ghj",
       "gender": "women",
-      "bishkek": "",
-      "astana": "",
+      "bishkek": "on",
+      "astana": "on",
       "almaty": "on",
       "moscow": "",
       "sale": "on",
-      "discount": 0,
-      "id": 9,
-      "": "10"
-    },
-    {
-      "title": "qwertyu",
-      "price": 100,
-      "image": "https://threejs.org/files/projects/webgi-jewelry.png",
-      "description": "asdfgh",
-      "gender": "women",
-      "bishkek": "",
-      "astana": "",
-      "almaty": "",
-      "moscow": "on",
-      "sale": "on",
-      "discount": 0,
-      "id": 10,
-      "": "10"
+      "discount": "",
+      "id": 3
     }
   ]
 }
