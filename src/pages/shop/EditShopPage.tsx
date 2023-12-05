@@ -6,6 +6,7 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
+  TextField,
 } from "@mui/material";
 import { useProducts } from "../../context/products/ProductsContextProvider";
 import React, { useEffect, useState } from "react";
@@ -23,6 +24,8 @@ const EditShopPage = () => {
     astana: "",
     almaty: "",
     moscow: "",
+    sale: "",
+   
   });
 
   const nav = useNavigate();
@@ -33,7 +36,34 @@ const EditShopPage = () => {
   }, []);
 
   useEffect(() => {
-    oneProduct && setProduct(oneProduct);
+    if (oneProduct) {
+      const {
+        title,
+        price,
+        image,
+        description,
+        gender,
+        bishkek,
+        astana,
+        almaty,
+        moscow,
+        sale,
+        
+      } = oneProduct;
+
+      setProduct({
+        title: title || "",
+        price: price || 0,
+        image: image || "",
+        description: description || "",
+        gender: gender || "",
+        bishkek: bishkek || "",
+        astana: astana || "",
+        almaty: almaty || "",
+        moscow: moscow || "",
+        sale: sale || "",
+      });
+    }
   }, [oneProduct]);
 
   const handleChange = (e: any) => {
@@ -95,6 +125,16 @@ const EditShopPage = () => {
     const checked = event.target.checked;
     setIsCheckedMoscow(checked);
     setProduct({ ...product, moscow: event.target.value as string });
+  };
+
+  const [isCheckedSale, setIsCheckedSale] = useState<boolean>(false);
+
+  const handleCheckboxChangeSale = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const checked = event.target.checked;
+    setIsCheckedSale(checked);
+    setProduct({ ...product, sale: event.target.value as string });
   };
 
   return (
@@ -192,6 +232,19 @@ const EditShopPage = () => {
           placeholder="Price"
           onChange={handleChange}
         />
+
+        <FormControlLabel
+          control={
+            <Checkbox
+              defaultChecked
+              color="secondary"
+              checked={isCheckedSale}
+              onChange={handleCheckboxChangeSale}
+            />
+          }
+          label="Add to sales"
+        />
+        
         <button type="submit">Save</button>
       </form>
     </div>

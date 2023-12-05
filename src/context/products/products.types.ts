@@ -14,6 +14,7 @@ export interface IProduct {
   likes?: any;
   comments?: any;
   rating?: any;
+  sale?: string;
 }
 
 export interface Like {

@@ -13,6 +13,7 @@ import AstanaProducts from "../pages/map/AstanaProducts";
 import AlmatyProducts from "../pages/map/AlmatyProducts";
 import MoscowProducts from "../pages/map/MoscowProducts";
 import CartPage from "../pages/cart/CartPage";
+import SalesPage from "../pages/SalesPage";
 
 const MainRoutes = () => {
   const userRole = getUserRole();
@@ -32,6 +33,10 @@ const MainRoutes = () => {
         <Route
           path="/shop/details/:id"
           element={userRole == "user" || "admin" ? <DetailsShopPage /> : null}
+        />
+         <Route
+          path="/sale"
+          element={userRole == "user" || "admin" ? <SalesPage /> : null}
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

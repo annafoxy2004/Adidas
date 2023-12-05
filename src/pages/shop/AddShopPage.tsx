@@ -24,6 +24,8 @@ const AddShopPage = () => {
     astana: "",
     almaty: "",
     moscow: "",
+    sale: "",
+    discount:"",
   });
 
   const nav = useNavigate();
