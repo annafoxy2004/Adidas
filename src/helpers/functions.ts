@@ -1,5 +1,15 @@
-export const checkUserLogin = () => {
-    const email = localStorage.getItem('email');
-    if(!email) return false;
-    return true;
+export const getUserRole = () => {
+  const user = localStorage.getItem("email");
+
+  if (!user) {
+    return "not logged in"; // Незалогиненный пользователь
+  }
+
+  if (user === "foxy@gmail.com") {
+    return "admin"; // Администратор
+  }
+
+  return "user"; // Обычный пользователь
 };
+
+//admin - тоже является user

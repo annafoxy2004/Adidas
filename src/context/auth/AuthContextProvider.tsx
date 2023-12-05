@@ -9,7 +9,6 @@ import React, {
   useEffect,
 } from "react";
 import { AuthValuesTypes, IAuth } from "./auth.types";
-import { ADMINS } from "../../helpers/consts";
 import { useNavigate } from "react-router-dom";
 import { notify, NOTIFY_TYPES } from "../../components/alerts/Toastify";
 
@@ -65,10 +64,13 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       checkAuth();
       console.log(res);
       navigate("/");
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       console.log(err);
       setError(err.response.data.detail || "An error occurred");
-      notify(err.code.split("/")[1], "error");
+      // notify(err.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
+
     }
   }
 
@@ -98,9 +100,12 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       );
       const email = localStorage.getItem("email") || "";
       setCurrentUser(email);
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       console.log(err);
       handleLogout();
+      notify("error", NOTIFY_TYPES.error);
+
     } finally {
       setLoading(false);
     }
@@ -113,22 +118,16 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       setCurrentUser(false);
       navigate("/");
       console.log("logout");
+      notify("success", NOTIFY_TYPES.success);
     } catch (e: any) {
-      notify(e.code.split("/")[1], "error");
-    }
-  }
+      // notify(e.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
 
-  function isAdmin() {
-    let user = localStorage.getItem("email");
-    if (!user) {
-      return false;
     }
-    return ADMINS.includes(user);
   }
 
   const contextValue: AuthValuesTypes = {
     currentUser,
-    isAdmin,
     error,
     loading,
     setError: setError as Dispatch<SetStateAction<string | boolean>>,

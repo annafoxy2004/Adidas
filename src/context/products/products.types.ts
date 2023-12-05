@@ -2,9 +2,13 @@ export interface IProduct {
   title: string;
   price: number;
   description: string;
-  category: string;
   image: string;
   id?: string;
+  gender: string;
+  bishkek: string;
+  astana: string;
+  almaty: string;
+  moscow: string;
 }
 
 export interface IProductsValues {

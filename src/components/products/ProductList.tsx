@@ -10,13 +10,13 @@ const Product = () => {
 
   useEffect(() => {
     getProducts();
+    
   }, []);
 
   return (
     <>
       {products.map((product) => (
         <div key={product.id}>
-          <p>Category: {product.category}</p>
           <p>Description: {product.description}</p>
           <img src={product.image} alt={product.title} />
           <p>Price: {product.price}</p>

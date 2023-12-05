@@ -11,7 +11,7 @@ const App = () => {
     <div className="app">
       <ToastContainer/>
       <Navbar />
-      <div className="main">
+      <div className="mainn">
         <MainRoutes />
       </div>
       <Footer />
