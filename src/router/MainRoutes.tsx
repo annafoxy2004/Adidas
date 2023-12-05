@@ -7,11 +7,13 @@ import AddShopPage from "../pages/shop/AddShopPage";
 import HomePage from "../pages/HomePage";
 import { checkUserLogin } from "../helpers/functions";
 import EditShopPage from "../pages/shop/EditShopPage";
+import CartPage from "../pages/cart/CartPage";
 
 const MainRoutes = () => {
   return (
     <div>
       <Routes>
+      <Route path="/cart" element={<CartPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/shop/addshop" element={checkUserLogin() ? <AddShopPage /> : null}  />
         <Route path="/shop/editshop/:id" element={checkUserLogin() ? <EditShopPage /> : null}  />
