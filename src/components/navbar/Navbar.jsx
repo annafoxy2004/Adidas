@@ -15,6 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import SearchProduct from "../../components/products/SearchProduct";
 
 const pages = [{ title: "Products", link: "/", id: 1 }];
 
@@ -111,6 +112,7 @@ function Navbar() {
           <img className="nav_logo_img" src={logo} alt="logo" />
         </div>
         <div className="nav_auth flex justify-between">
+        <SearchProduct/>
         <Link className="text-white p-3">
             {currentUser ? currentUser: "No user"}
           </Link>
