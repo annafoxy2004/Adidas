@@ -26,6 +26,7 @@ const Product = () => {
           <img src={product.image} alt={product.title} />
           <p>Price: {product.price}</p>
           <p>Title: {product.title}</p>
+          <p>Gender: {product.gender}</p>
           {currentUser && (
             <div>
               {isAlreadyInCart(+product.id!) ? (
