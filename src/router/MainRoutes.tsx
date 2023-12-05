@@ -12,12 +12,14 @@ import BishkekProducts from "../pages/map/BishkekProducts";
 import AstanaProducts from "../pages/map/AstanaProducts";
 import AlmatyProducts from "../pages/map/AlmatyProducts";
 import MoscowProducts from "../pages/map/MoscowProducts";
+import CartPage from "../pages/cart/CartPage";
 
 const MainRoutes = () => {
   const userRole = getUserRole();
   return (
     <div>
       <Routes>
+      <Route path="/cart" element={<CartPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route
           path="/shop/addshop"

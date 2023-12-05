@@ -1,10 +1,17 @@
 // products.context.tsx
-import React, { createContext, useContext, useReducer, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useReducer,
+  ReactNode,
+  useState,
+} from "react";
 import { IProductsValues, STATE, ACTION, IProduct } from "./products.types";
 import axios from "axios";
-import { API } from "../../helpers/consts";
+import { API, LIMIT } from "../../helpers/consts";
 import { IAuth } from "context/auth/auth.types";
 import { useNavigate } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 export const productsContext = createContext<IProductsValues | null>(null);
 
@@ -20,6 +27,8 @@ function reducer(state = INIT_STATE, action: ACTION): STATE {
       return { ...state, products: action.payload };
     case "GET_ONE_PRODUCT":
       return { ...state, oneProduct: action.payload };
+    case "GET_TOTAL_PAGE_COUNT":
+      return { ...state, pageTotalCount: action.payload };
     default:
       return state;
   }
@@ -34,16 +43,24 @@ export function useProducts() {
 }
 
 const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [state, dispatch] = useReducer(reducer, INIT_STATE);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [page, setPage] = useState(searchParams.get("_page") || 1);
 
   async function getProducts() {
     const { data, headers } = await axios.get(API + window.location.search);
-// console.log(data);
+    // console.log(data);
 
     dispatch({
       type: "GET_PRODUCTS",
       payload: data,
+    });
+
+    const totalCount = Math.ceil(headers["x-total-count"] / LIMIT);
+    dispatch({
+      type: "GET_TOTAL_PAGE_COUNT",
+      payload: totalCount,
     });
   }
 
@@ -70,26 +87,24 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
     });
   }
 
-  async function showDetailsPage(id: string) {
-    nav("/shop/details/:id")
-  }
-
-    return (
-      <productsContext.Provider
-        value={{
-          addProduct,
-          getProducts,
-          deleteProduct,
-          getOneProduct,
-          editProduct,
-          products: state.products,
-          oneProduct: state.oneProduct,
-          showDetailsPage
-        }}
-      >
-        {children}
-      </productsContext.Provider>
-    );
+  return (
+    <productsContext.Provider
+      value={{
+        addProduct,
+        getProducts,
+        deleteProduct,
+        getOneProduct,
+        editProduct,
+        products: state.products,
+        oneProduct: state.oneProduct,
+        pageTotalCount: state.pageTotalCount,
+        page,
+        setPage,
+      }}
+    >
+      {children}
+    </productsContext.Provider>
+  );
 };
 
 export default ProductsContextProvider;

@@ -23,6 +23,7 @@ const EditShopPage = () => {
   useEffect(() => {
     getOneProduct(id!);
   }, []);
+  
 
   useEffect(() => {
     oneProduct && setProduct(oneProduct);

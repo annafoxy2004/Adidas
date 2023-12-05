@@ -6,7 +6,6 @@ import React, {
   SetStateAction,
   Dispatch,
   useContext,
-  useEffect,
 } from "react";
 import { AuthValuesTypes, IAuth } from "./auth.types";
 import { useNavigate } from "react-router-dom";

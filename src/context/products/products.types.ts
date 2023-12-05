@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface IProduct {
   title: string;
   price: number;
@@ -18,8 +20,10 @@ export interface IProductsValues {
   getOneProduct: (id: string) => Promise<void>;
   getProducts: () => Promise<void>;
   deleteProduct: (id: string) => Promise<void>;
-  showDetailsPage: (id: string) => Promise<void>;
   editProduct: (id: string, newProduct: IProduct) => Promise<void>;
+  setPage: Dispatch<SetStateAction<number | string>>;
+  pageTotalCount: number;
+  page: number | string;
 }
 
 export type STATE = {
