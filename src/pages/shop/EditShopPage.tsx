@@ -1,4 +1,12 @@
-import { Checkbox, FormControl, FormControlLabel, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
+import {
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  InputLabel,
+  MenuItem,
+  Select,
+  SelectChangeEvent,
+} from "@mui/material";
 import { useProducts } from "../../context/products/ProductsContextProvider";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,7 +31,6 @@ const EditShopPage = () => {
   useEffect(() => {
     getOneProduct(id!);
   }, []);
-  
 
   useEffect(() => {
     oneProduct && setProduct(oneProduct);
@@ -42,8 +49,6 @@ const EditShopPage = () => {
     editProduct(id!, product);
     nav("/shop");
   };
-
-
 
   const [gender, setGender] = React.useState("");
 
@@ -103,7 +108,7 @@ const EditShopPage = () => {
           placeholder="Title"
           onChange={handleChange}
         />
-          <FormControl fullWidth style={{ width: "100px" }}>
+        <FormControl fullWidth style={{ width: "100px" }}>
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -165,7 +170,7 @@ const EditShopPage = () => {
           }
           label="Moscow"
         />
-       
+
         <input
           type="text"
           name="description"
@@ -187,7 +192,7 @@ const EditShopPage = () => {
           placeholder="Price"
           onChange={handleChange}
         />
-      <button type="submit">Save</button>
+        <button type="submit">Save</button>
       </form>
     </div>
   );

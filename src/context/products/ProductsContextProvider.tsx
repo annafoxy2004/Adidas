@@ -6,12 +6,25 @@ import React, {
   ReactNode,
   useState,
 } from "react";
-import { IProductsValues, STATE, ACTION, IProduct } from "./products.types";
+import {
+  IProductsValues,
+  STATE,
+  ACTION,
+  IProduct,
+  Like,
+  IComment,
+} from "./products.types";
 import axios from "axios";
 import { API, LIMIT } from "../../helpers/consts";
 import { IAuth } from "context/auth/auth.types";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
+import {
+  getAuthUser,
+  getProductRating,
+  getUserRole,
+} from "../../helpers/functions";
+import { NOTIFY_TYPES, notify } from "../../components/alerts/Toastify";
 
 export const productsContext = createContext<IProductsValues | null>(null);
 
@@ -50,7 +63,6 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
 
   async function getProducts() {
     const { data, headers } = await axios.get(API + window.location.search);
-    console.log(data);
 
     dispatch({
       type: "GET_PRODUCTS",
@@ -87,6 +99,27 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
     });
   }
 
+  async function createComment(productObj: IProduct, commentObj: IComment) {
+    const updatedProductObj = { ...productObj };
+    const checkCommentKeyInProduct =
+      Object.keys(updatedProductObj).includes("comments");
+
+    if (!checkCommentKeyInProduct) {
+      updatedProductObj.comments = [commentObj];
+    } else {
+      updatedProductObj.comments = [...productObj.comments, commentObj];
+    }
+
+    updatedProductObj.rating = getProductRating(updatedProductObj);
+
+    await axios.patch(`${API}/${updatedProductObj.id}`, updatedProductObj);
+
+    const productId: any = updatedProductObj.id;
+
+    getOneProduct(productId);
+  }
+  
+
   return (
     <productsContext.Provider
       value={{
@@ -100,6 +133,7 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
         pageTotalCount: state.pageTotalCount,
         page,
         setPage,
+        createComment,
       }}
     >
       {children}

@@ -11,6 +11,14 @@ export interface IProduct {
   astana: string;
   almaty: string;
   moscow: string;
+  likes?: any;
+  comments?: any;
+  rating?: any;
+}
+
+export interface Like {
+  id: number;
+  user: string;
 }
 
 export interface IProductsValues {
@@ -24,6 +32,7 @@ export interface IProductsValues {
   setPage: Dispatch<SetStateAction<number | string>>;
   pageTotalCount: number;
   page: number | string;
+  createComment: (productObj: IProduct, commentObj: IComment) => Promise<void>;
 }
 
 export type STATE = {
@@ -36,3 +45,10 @@ export type ACTION = {
   type: "GET_PRODUCTS" | "GET_ONE_PRODUCT" | "GET_TOTAL_PAGE_COUNT";
   payload: any;
 };
+
+export interface IComment {
+  user: string;
+  rating: number | string;
+  body: string;
+  id?: number;
+}

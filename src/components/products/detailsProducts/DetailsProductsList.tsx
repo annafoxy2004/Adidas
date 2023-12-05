@@ -2,6 +2,9 @@ import { useProducts } from "../../../context/products/ProductsContextProvider";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import CommentsCreate from "../../../components/comments/CommentsCreate";
+import CommentsList from "../../../components/comments/CommentsList";
+import { checkUserLogin } from "../../../helpers/functions";
 
 const DetailsProductsList = () => {
   const { id } = useParams();
@@ -33,16 +36,31 @@ const DetailsProductsList = () => {
         <div>
           <h2>{product.title}</h2>
           <p>{product.price}</p>
+          {oneProduct?.rating && (
+                        <h3>Rating: { oneProduct.rating }</h3>
+                      )}
           <img src={product.image} alt="details" />
           <p>{product.description}</p>
         </div>
+
+        <div>
+        <>
+            {checkUserLogin() && oneProduct && <CommentsCreate product={oneProduct} />}
+            {oneProduct?.comments ? (
+              <CommentsList comments={oneProduct.comments} />
+            ) : (
+              <h3>No comments yet!</h3>
+            )}
+          </>
+        </div>
+
         <div>
           <div className="map bg-black flex justify-center h-60">
             <div className="map-icon flex items-center flex-col">
               <LocationOnIcon
                 className="text-white hover:text-[#d9f99d]"
                 style={{ fontSize: 150 }}
-                onClick={()=>nav("/map/bishkek")}
+                onClick={() => nav("/map/bishkek")}
               />
               <p className="text-white text-xl">Bishkek</p>
             </div>
@@ -50,7 +68,7 @@ const DetailsProductsList = () => {
               <LocationOnIcon
                 className="text-white hover:text-[#d9f99d]"
                 style={{ fontSize: 150 }}
-                onClick={()=>nav("/map/almaty")}
+                onClick={() => nav("/map/almaty")}
               />
               <p className="text-white text-xl">Almaty</p>
             </div>
@@ -58,7 +76,7 @@ const DetailsProductsList = () => {
               <LocationOnIcon
                 className="text-white hover:text-[#d9f99d]"
                 style={{ fontSize: 150 }}
-                onClick={()=>nav("/map/astana")}
+                onClick={() => nav("/map/astana")}
               />
               <p className="text-white text-xl">Astana</p>
             </div>
@@ -66,7 +84,7 @@ const DetailsProductsList = () => {
               <LocationOnIcon
                 className="text-white hover:text-[#d9f99d]"
                 style={{ fontSize: 150 }}
-                onClick={()=>nav("/map/moscow")}
+                onClick={() => nav("/map/moscow")}
               />
               <p className="text-white text-xl">Moscow</p>
             </div>

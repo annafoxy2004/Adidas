@@ -1,18 +1,6 @@
 {
   "product": [
     {
-      "title": "йцуке",
-      "price": 567,
-      "image": "https://srv.carbonads.net/static/30242/e9e159e560c126ca858d8494d70bd0bf7375e539",
-      "description": "апр",
-      "gender": "men",
-      "bishkek": "on",
-      "astana": "on",
-      "almaty": "",
-      "moscow": "on",
-      "id": 1
-    },
-    {
       "title": "фывапрол",
       "price": 56,
       "image": "https://srv.carbonads.net/static/30242/e9e159e560c126ca858d8494d70bd0bf7375e539",
@@ -22,7 +10,28 @@
       "astana": "",
       "almaty": "on",
       "moscow": "",
-      "id": 2
+      "id": 2,
+      "likes": [
+        {
+          "id": 1701796317141,
+          "user": "foxy@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1701803929064,
+          "body": "йцукен",
+          "rating": 5,
+          "user": "foxy@gmail.com"
+        },
+        {
+          "id": 1701804001379,
+          "body": "фывапрол",
+          "rating": 2,
+          "user": "foxy@gmail.com"
+        }
+      ],
+      "rating": 3.5
     },
     {
       "title": "er",
@@ -34,7 +43,8 @@
       "astana": "",
       "almaty": "",
       "moscow": "on",
-      "id": 3
+      "id": 3,
+      "likes": []
     },
     {
       "title": "wr",
@@ -58,7 +68,13 @@
       "astana": "on",
       "almaty": "",
       "moscow": "",
-      "id": 5
+      "id": 5,
+      "likes": [
+        {
+          "id": 1701795833095,
+          "user": "foxy@gmail.com"
+        }
+      ]
     }
   ]
 }

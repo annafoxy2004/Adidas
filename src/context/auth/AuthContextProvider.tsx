@@ -58,7 +58,8 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       const res = await axios.post(`${API}/account/login/`, formData);
       localStorage.getItem("email");
       localStorage.setItem("tokens", JSON.stringify(res.data));
-      localStorage.setItem("email", email);
+      let user = JSON.stringify(email)
+      localStorage.setItem("email", user);
       setCurrentUser(email);
       checkAuth();
       console.log(res);
