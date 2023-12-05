@@ -25,4 +25,4 @@ export const categories = [
   },
 ];
 
-export const LIMIT = 2;
+export const LIMIT = 4;
