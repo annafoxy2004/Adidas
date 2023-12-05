@@ -23,11 +23,11 @@ const MainRoutes = () => {
         <Route path="/shop" element={<ShopPage />} />
         <Route
           path="/shop/addshop"
-          element={userRole == "admin" ? <AddShopPage /> : null}
+          element={userRole == "user" || "admin"? <AddShopPage /> : null}
         />
         <Route
           path="/shop/editshop/:id"
-          element={userRole == "admin" ? <EditShopPage /> : null}
+          element={userRole == "user" || "admin" ? <EditShopPage /> : null}
         />
         <Route
           path="/shop/details/:id"
