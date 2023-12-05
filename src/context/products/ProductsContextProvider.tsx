@@ -50,7 +50,7 @@ const ProductsContextProvider: React.FC<IAuth> = ({ children }) => {
 
   async function getProducts() {
     const { data, headers } = await axios.get(API + window.location.search);
-    // console.log(data);
+    console.log(data);
 
     dispatch({
       type: "GET_PRODUCTS",

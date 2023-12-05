@@ -38,19 +38,19 @@ const MainRoutes = () => {
         <Route path="/" element={<HomePage />} />
         <Route
           path="/map/bishkek"
-          element={userRole == "user" ? <BishkekProducts /> : null}
+          element={userRole == "user" || "admin" ? <BishkekProducts /> : null}
         />
         <Route
           path="/map/astana"
-          element={userRole == "user" ? <AstanaProducts /> : null}
+          element={userRole == "user"|| "admin" ? <AstanaProducts /> : null}
         />
         <Route
           path="/map/almaty"
-          element={userRole == "user" ? <AlmatyProducts /> : null}
+          element={userRole == "user" || "admin"? <AlmatyProducts /> : null}
         />
         <Route
           path="/map/moscow"
-          element={userRole == "user" ? <MoscowProducts /> : null}
+          element={userRole == "user" || "admin"? <MoscowProducts /> : null}
         />
       </Routes>
     </div>

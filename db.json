@@ -7,10 +7,58 @@
       "description": "апр",
       "gender": "men",
       "bishkek": "on",
-      "astana": "",
+      "astana": "on",
       "almaty": "",
       "moscow": "on",
       "id": 1
+    },
+    {
+      "title": "фывапрол",
+      "price": 56,
+      "image": "https://srv.carbonads.net/static/30242/e9e159e560c126ca858d8494d70bd0bf7375e539",
+      "description": "вап",
+      "gender": "women",
+      "bishkek": "",
+      "astana": "",
+      "almaty": "on",
+      "moscow": "",
+      "id": 2
+    },
+    {
+      "title": "er",
+      "price": 2,
+      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
+      "description": "qwe",
+      "gender": "women",
+      "bishkek": "",
+      "astana": "",
+      "almaty": "",
+      "moscow": "on",
+      "id": 3
+    },
+    {
+      "title": "wr",
+      "price": 322,
+      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
+      "description": "er",
+      "gender": "men",
+      "bishkek": "on",
+      "astana": "",
+      "almaty": "",
+      "moscow": "on",
+      "id": 4
+    },
+    {
+      "title": "qwerty",
+      "price": 1234567890,
+      "image": "https://m.media-amazon.com/images/I/81cPKedf8pL._AC_UF1000,1000_QL80_.jpg",
+      "description": "zxcvbnm",
+      "gender": "men",
+      "bishkek": "",
+      "astana": "on",
+      "almaty": "",
+      "moscow": "",
+      "id": 5
     }
   ]
 }
