@@ -4,9 +4,11 @@ import React, { useEffect } from "react";
 import { useAuth } from "../../context/auth/AuthContextProvider";
 import { useCartContext } from "../../context/cart/CartContextProvider";
 import { Button } from "@mui/material";
+import { useFavoriteContext } from "../../context/favorites/FavoritesContextProvider";
 
 const Product = () => {
   const { getProducts, products, deleteProduct } = useProducts();
+  const {isAlreadyInFavorit, addProductToFavorite, deleteProductFromFavorite} = useFavoriteContext()
   const { addProductToCart, isAlreadyInCart, deleteProductFromCart } =
     useCartContext();
   const { currentUser } = useAuth();
@@ -33,6 +35,19 @@ const Product = () => {
               ) : (
                 <button onClick={() => addProductToCart(product)}>
                   add to cart
+                </button>
+              )}
+            </div>
+          )}
+          {currentUser && (
+            <div>
+              {isAlreadyInFavorit(+product.id!) ? (
+                <button onClick={() => deleteProductFromFavorite(+product.id!)}>
+                  delet on favorite
+                </button>
+              ) : (
+                <button onClick={() => addProductToFavorite(product)}>
+                  add to favorite
                 </button>
               )}
             </div>
