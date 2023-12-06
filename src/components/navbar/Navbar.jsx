@@ -146,13 +146,23 @@ function Navbar() {
                 >
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
-                      {userRole == "user" || "admin" ? (
+                      
                         <MenuList
                           autoFocusItem={open}
                           id="composition-menu"
                           aria-labelledby="composition-button"
                           onKeyDown={handleListKeyDown}
                         >
+                            <MenuItem onClick={handleClose}>
+                            <Link to={"/register"} className="text-indigo-700">
+                              Register
+                            </Link>
+                          </MenuItem>
+                          <MenuItem onClick={handleClose}>
+                            <Link to={"/login"} className="text-indigo-700">
+                              Login
+                            </Link>
+                          </MenuItem>
                           <MenuItem onClick={handleClose}>
                             <Link
                               to={"/"}
@@ -163,25 +173,7 @@ function Navbar() {
                             </Link>
                           </MenuItem>{" "}
                         </MenuList>
-                      ) : (
-                        <MenuList
-                          autoFocusItem={open}
-                          id="composition-menu"
-                          aria-labelledby="composition-button"
-                          onKeyDown={handleListKeyDown}
-                        >
-                          <MenuItem onClick={handleClose}>
-                            <Link to={"/register"} className="text-indigo-700">
-                              Register
-                            </Link>
-                          </MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            <Link to={"/login"} className="text-indigo-700">
-                              Login
-                            </Link>
-                          </MenuItem>
-                        </MenuList>
-                      )}
+                     
                     </ClickAwayListener>
                   </Paper>
                 </Grow>
