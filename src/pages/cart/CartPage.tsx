@@ -51,7 +51,9 @@ const CartPage = () => {
           </div>
         ))}
         <h4>TOTAL: {cart.totalPrice}</h4>
+        <Link to={"/order"}>
         <button>ORDER</button>
+        </Link>
       </form>
     </div>
   );
