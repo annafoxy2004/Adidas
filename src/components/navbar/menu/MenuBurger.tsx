@@ -30,13 +30,13 @@ const MenuBurger: React.FC<MenuProps> = ({
       <div className="menu__content" onClick={(e) => e.stopPropagation()}>
         <div className="menu__header">{header}</div>
         {userRole == "not logged in" ? (
-          <ul>
+          <ul className="ull">
             <Link to={"/"} className="p-6 text-xl animate-bounce text-white">
               HomePage
             </Link>
           </ul>
         ) : (
-          <ul>
+          <ul className="ull">
             <Link to={"/"} className="p-6 text-xl animate-bounce text-white">
               HomePage
             </Link>
@@ -52,6 +52,17 @@ const MenuBurger: React.FC<MenuProps> = ({
               className="text-xl animate-bounce p-6 text-white"
             >
               Sale
+            </Link>
+            <Link
+              to={"/cart"}
+              className="text-xl animate-bounce p-6 text-white"
+            >
+              Cart
+            </Link><Link
+              to={"/order"}
+              className="text-xl animate-bounce p-6 text-white"
+            >
+              Order
             </Link>
           </ul>
         )}

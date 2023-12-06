@@ -88,7 +88,7 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      <img src={cl} alt="cl" style={{ position: "relative" }} />
+      {/* <img src={cl} alt="cl" style={{ position: "relative" }} /> */}
       <section className="trd-section flex flex-row justify-around m-10 pt-10 pb-10 max-md:flex-col">
         <div className="card flex flex-col items-center">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_400,w_400/xcat_fw23_holiday_dec_shoes100andunder_glp_group_tcc_d_313e735c64.jpg" alt="" />

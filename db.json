@@ -101,7 +101,13 @@
       "moscow": "on",
       "sale": "",
       "discount": "",
-      "id": 5
+      "id": 5,
+      "likes": [
+        {
+          "id": 1701868193777,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "ADICOLOR CLASSICS SST TRACK PANTS",

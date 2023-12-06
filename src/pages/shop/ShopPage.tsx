@@ -5,6 +5,8 @@ import ProductFilter from "../../components/products/ProductFilter";
 import SearchProduct from "../../components/products/SearchProduct";
 //@ts-ignore
 import cl from "../../assets/bg_cl.svg"
+//@ts-ignore
+import det from "../../assets/det.svg"
 
 const ShopPage = () => {
   return (
@@ -14,11 +16,15 @@ const ShopPage = () => {
         <div className="searchInp w-72 flex justify-between">
 
         <SearchProduct/>
-        <ProductPagination />
         </div>
         
         <ProductFilter />
         <Product />
+        <div className="pag mb-20">
+
+        <ProductPagination />
+        </div>
+        <img src={det} alt="" />
       </div>
     </>
   );

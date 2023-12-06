@@ -47,16 +47,16 @@
   text-align: center;
 }
 
-ul li a {
+.ull li a {
   color: azure;
 }
 
-ul li {
+.ull li {
   display: flex;
   align-items: center;
 }
 
-ul {
+.ull {
   text-align: center;
   display: flex;
   flex-direction: column;
