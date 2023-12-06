@@ -10,9 +10,15 @@
       "astana": "on",
       "almaty": "on",
       "moscow": "on",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 1
+      "id": 1,
+      "likes": [
+        {
+          "id": 1701862837880,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "NIZZA PLATFORM SHOES",
@@ -24,9 +30,24 @@
       "astana": "",
       "almaty": "on",
       "moscow": "on",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 2
+      "id": 2,
+      "likes": [
+        {
+          "id": 1701862836029,
+          "user": "foxy@gmail.com"
+        }
+      ],
+      "comments": [
+        {
+          "id": 1701865145141,
+          "body": "qwerty",
+          "rating": 5,
+          "user": "foxy@gmail.com"
+        }
+      ],
+      "rating": 5
     },
     {
       "title": "GROVE BEANIE",
@@ -38,9 +59,15 @@
       "astana": "on",
       "almaty": "",
       "moscow": "on",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 3
+      "id": 3,
+      "likes": [
+        {
+          "id": 1701862840210,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "NMD_R1 SHOES",
@@ -54,7 +81,13 @@
       "moscow": "on",
       "sale": "",
       "discount": "",
-      "id": 4
+      "id": 4,
+      "likes": [
+        {
+          "id": 1701864042436,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "TERREX SWIFT R3 MID GORE-TEX HIKING SHOES",
@@ -80,9 +113,15 @@
       "astana": "on",
       "almaty": "on",
       "moscow": "",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 6
+      "id": 6,
+      "likes": [
+        {
+          "id": 1701864651826,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "ESSENTIALS FLEECE 3-STRIPES FULL-ZIP HOODIE",
@@ -94,9 +133,15 @@
       "astana": "on",
       "almaty": "",
       "moscow": "",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 7
+      "id": 7,
+      "likes": [
+        {
+          "id": 1701864178757,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "OZWEEGO SHOES",
@@ -108,9 +153,15 @@
       "astana": "on",
       "almaty": "on",
       "moscow": "",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 8
+      "id": 8,
+      "likes": [
+        {
+          "id": 1701867008503,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "ALL ME 2 TOTE",
@@ -122,9 +173,15 @@
       "astana": "",
       "almaty": "",
       "moscow": "on",
-      "sale": "",
+      "sale": "on",
       "discount": "",
-      "id": 9
+      "id": 9,
+      "likes": [
+        {
+          "id": 1701867010433,
+          "user": "foxy@gmail.com"
+        }
+      ]
     },
     {
       "title": "ADICANE CLOGS",

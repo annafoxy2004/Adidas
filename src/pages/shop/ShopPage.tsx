@@ -9,10 +9,14 @@ import cl from "../../assets/bg_cl.svg"
 const ShopPage = () => {
   return (
     <>
-      <div className="shopPage flex flex-col justify-center items-center">
       <img src={cl} alt="cl" />
+      <div className="shopPage pl-32 pr-32">
+        <div className="searchInp w-72 flex justify-between">
+
+        <SearchProduct/>
+        <ProductPagination />
+        </div>
         
-        <SearchProduct />
         <ProductFilter />
         <Product />
       </div>

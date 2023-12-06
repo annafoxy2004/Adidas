@@ -40,7 +40,7 @@ const MainRoutes = () => {
         />
          <Route
           path="/sale"
-          element={userRole == "user" || "admin" ? <SalesPage /> : null}
+          element={ <SalesPage /> }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

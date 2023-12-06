@@ -33,7 +33,7 @@ const CommentsItem: React.FC<ProductCommentOneProps> = ({ comment }) => {
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-3 py-1 my-1 space-x-2 text-sm border rounded-full group dark:border-gray-700"
                 >
-                  <span className="group-hover:underline dark:text-red-600 text-gray-600 ">
+                  <span className="group-hover:underline dark:text-blue-600 text-gray-600 ">
                     @{comment.user}
                   </span>
                 </a>

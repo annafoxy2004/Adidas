@@ -8,7 +8,7 @@ interface ProductCommentProps {
 
 const CommentsList: React.FC<ProductCommentProps> = ({ comments }) => {
   return (
-    <div>
+    <div >
       {comments.map((comment) => (
         <CommentsItem key={comment.id} comment={comment} />
       ))}

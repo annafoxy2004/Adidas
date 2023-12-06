@@ -5,6 +5,8 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CommentsCreate from "../../../components/comments/CommentsCreate";
 import CommentsList from "../../../components/comments/CommentsList";
 import { checkUserLogin } from "../../../helpers/functions";
+//@ts-ignore
+import det from "../../../assets/det.svg";
 
 const DetailsProductsList = () => {
   const { id } = useParams();
@@ -31,21 +33,29 @@ const DetailsProductsList = () => {
   }, [oneProduct]);
 
   return (
-    <div>
+    <div className="bg-[#0232f0]">
+      <img src={det} alt="det" />
       <div>
-        <div>
-          <h2>{product.title}</h2>
-          <p>{product.price}</p>
-          {oneProduct?.rating && (
-                        <h3>Rating: { oneProduct.rating }</h3>
-                      )}
-          <img src={product.image} alt="details" />
-          <p>{product.description}</p>
+        <div className="flex flex-row justify-around m-32 max-md:flex-col">
+          <div className=" border-8 border-lime-400 border-solid p-10">
+            <img src={product.image} alt="details" className="mr-32" />
+          </div>
+          <div className=" border-8 border-lime-400 border-solid p-10">
+            <h2 className="text-2xl font-bold">{product.title}</h2>
+            <p>Price: {product.price}</p>
+            <div className="border-4 border-pink-600 w-28">
+              {oneProduct?.rating && <h3>Rating: {oneProduct.rating}</h3>}
+            </div>
+
+            <p>{product.description}</p>
+          </div>
         </div>
 
         <div>
-        <>
-            {checkUserLogin() && oneProduct && <CommentsCreate product={oneProduct} />}
+          <>
+            {checkUserLogin() && oneProduct && (
+              <CommentsCreate product={oneProduct} />
+            )}
             {oneProduct?.comments ? (
               <CommentsList comments={oneProduct.comments} />
             ) : (
