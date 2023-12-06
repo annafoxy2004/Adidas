@@ -34,12 +34,6 @@ const MenuBurger: React.FC<MenuProps> = ({
             <Link to={"/"} className="p-6 text-xl animate-bounce text-white">
               HomePage
             </Link>
-            <Link
-              to={"/blog"}
-              className="text-xl animate-bounce p-6 text-white"
-            >
-              Blog
-            </Link>
           </ul>
         ) : (
           <ul>
@@ -52,29 +46,12 @@ const MenuBurger: React.FC<MenuProps> = ({
             >
               Shop
             </Link>
-            <Link
-              to={"/blog"}
-              className="text-xl animate-bounce p-6 text-white"
-            >
-              Blog
-            </Link>
+
             <Link
               to={"/sale"}
               className="text-xl animate-bounce p-6 text-white"
             >
               Sale
-            </Link>
-            <Link
-              to={"/contactUs"}
-              className="text-xl animate-bounce p-6 text-white"
-            >
-              Contact Us
-            </Link>
-            <Link
-              to={"/quiz"}
-              className="text-xl animate-bounce p-6 text-white"
-            >
-              Quiz
             </Link>
           </ul>
         )}

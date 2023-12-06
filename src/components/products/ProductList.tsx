@@ -7,6 +7,7 @@ import { Button } from "@mui/material";
 import ProductLike from "./ProductLike";
 import { getAuthUser, getUserRole } from "helpers/functions";
 import { useFavoriteContext } from "../../context/favorites/FavoritesContextProvider";
+import ProductPagination from "./ProductPagination";
 
 const Product = () => {
   const { getProducts, products, deleteProduct, oneProduct } = useProducts();
@@ -68,6 +69,7 @@ const Product = () => {
           </Link>
         </div>
       ))}
+      <ProductPagination />
     </>
   );
 };

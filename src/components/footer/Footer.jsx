@@ -13,11 +13,11 @@ function Footer() {
 
       <div className="prefooter bg-[#8cf02e]">
         <div className=" flex items-start h-96 pt-6">
-          <div className="pfooter flex flex-row justify-center w-screen">
+          <div className="pfooter flex flex-col items-center justify-center w-screen">
             <p className="text-5xl font-medium text-footer">
               JOIN OUR ADICLUB & GET 15% OFF
             </p>
-            <div className="fancy" >
+            <div className="fancy w-72" >
               <span className="top-key"></span>
               <Link to={"/register"} className="text pt-4 btn-footer">
                 sign up for free
@@ -885,7 +885,7 @@ function Footer() {
               fontSize: "5.920156561603076rem",
               margin: "7.8302591444312695rem",
               position: "absolute",
-              left: "87.30162123048298%",
+              // left: "87.30162123048298%",
               animationDuration: "2.4068230614057184s",
               animationDelay: "-3.0497885686433817s",
             }}
@@ -1083,7 +1083,7 @@ function Footer() {
               fontSize: "3.8439524579807456rem",
               margin: "7.479282291618921rem",
               position: "absolute",
-              left: "94.56426131580588%",
+              // left: "94.56426131580588%",
               animationDuration: "2.8547265124431807s",
               animationDelay: "-2.8485312222540036s",
             }}
@@ -1237,7 +1237,7 @@ function Footer() {
               fontSize: "2.6334219865778987rem",
               margin: "8.172888888368739rem",
               position: "absolute",
-              left: "82.81581497524631%",
+              // left: "82.81581497524631%",
               animationDuration: "3.7237867376921505s",
               animationDelay: "-3.4116553406167456s",
             }}

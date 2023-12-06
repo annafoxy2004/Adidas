@@ -41,7 +41,7 @@ const settings = [
 ];
 
 function Navbar() {
-  const userRole = getUserRole()
+  const userRole = getUserRole();
   const navigate = useNavigate();
   const { currentUser, checkAuth, handleLogout, setCurrentUser } = useAuth();
 
@@ -88,7 +88,6 @@ function Navbar() {
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
@@ -100,7 +99,7 @@ function Navbar() {
 
   return (
     <div>
-      <nav>
+      <nav className="navver">
         <div
           className="burger-btn"
           onClick={() => {
@@ -113,7 +112,6 @@ function Navbar() {
           <img className="nav_logo_img" src={logo} alt="logo" />
         </div>
         <div className="nav_auth flex justify-between">
-          <SearchProduct />
           <Link className="text-white p-3">
             {currentUser ? currentUser : "No user"}
           </Link>
@@ -126,7 +124,7 @@ function Navbar() {
               aria-haspopup="true"
               onClick={handleToggle}
             >
-              <AccountCircleOutlinedIcon color="disabled" fontSize="large" />
+              <AccountCircleOutlinedIcon color="secondary" fontSize="large" />
             </Button>
             <Popper
               open={open}
@@ -146,42 +144,32 @@ function Navbar() {
                 >
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
-                      {userRole == "user" || "admin" ? (
-                        <MenuList
-                          autoFocusItem={open}
-                          id="composition-menu"
-                          aria-labelledby="composition-button"
-                          onKeyDown={handleListKeyDown}
-                        >
-                          <MenuItem onClick={handleClose}>
-                            <Link
-                              to={"/"}
-                              onClick={() => handleLogout()}
-                              className="text-indigo-700"
-                            >
-                              Logout
-                            </Link>
-                          </MenuItem>{" "}
-                        </MenuList>
-                      ) : (
-                        <MenuList
-                          autoFocusItem={open}
-                          id="composition-menu"
-                          aria-labelledby="composition-button"
-                          onKeyDown={handleListKeyDown}
-                        >
-                          <MenuItem onClick={handleClose}>
-                            <Link to={"/register"} className="text-indigo-700">
-                              Register
-                            </Link>
-                          </MenuItem>
-                          <MenuItem onClick={handleClose}>
-                            <Link to={"/login"} className="text-indigo-700">
-                              Login
-                            </Link>
-                          </MenuItem>
-                        </MenuList>
-                      )}
+                      <MenuList
+                        autoFocusItem={open}
+                        id="composition-menu"
+                        aria-labelledby="composition-button"
+                        onKeyDown={handleListKeyDown}
+                      >
+                        <MenuItem onClick={handleClose}>
+                          <Link to={"/register"} className="text-indigo-700">
+                            Register
+                          </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>
+                          <Link to={"/login"} className="text-indigo-700">
+                            Login
+                          </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>
+                          <Link
+                            to={"/"}
+                            onClick={() => handleLogout()}
+                            className="text-indigo-700"
+                          >
+                            Logout
+                          </Link>
+                        </MenuItem>
+                      </MenuList>
                     </ClickAwayListener>
                   </Paper>
                 </Grow>

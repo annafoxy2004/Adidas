@@ -14,7 +14,7 @@ html, body{
 }
 
 .fancy {
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
   border: 2px solid #000;
   border-radius: 0;
   box-sizing: border-box;
@@ -116,4 +116,8 @@ html, body{
   .fancy:hover .bottom-key-2 {
   right: 0;
   width: 0;
+ }
+
+ .shopPage{
+  background-color: rgb(168, 168, 243);
  }
