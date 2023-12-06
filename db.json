@@ -13,16 +13,12 @@
       "sale": "on",
       "discount": "",
       "id": 1,
-<<<<<<< HEAD
-      "likes": []
-=======
       "likes": [
         {
           "id": 1701862837880,
           "user": "foxy@gmail.com"
         }
       ]
->>>>>>> 3f27f8ffd44b25a6c095aa56b5b40864e6ba4058
     },
     {
       "title": "NIZZA PLATFORM SHOES",
