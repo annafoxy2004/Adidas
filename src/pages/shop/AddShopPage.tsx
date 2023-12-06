@@ -25,7 +25,7 @@ const AddShopPage = () => {
     almaty: "",
     moscow: "",
     sale: "",
-    discount:"",
+    discount: "",
   });
 
   const nav = useNavigate();
@@ -94,10 +94,14 @@ const AddShopPage = () => {
   };
 
   return (
-    <div>
-      <h2>Add form</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col">
+    <div className="bg-gray-200 w-full h-[70vh] flex items-center justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white w-2/5 h-4/5 flex flex-col items-center justify-center rounded-lg p-20"
+      >
+        <h2 className="text-2xl ">Add form</h2>
         <input
+          className="w-full"
           value={product.title}
           placeholder="Title"
           onChange={(e) => setProduct({ ...product, title: e.target.value })}
@@ -106,6 +110,7 @@ const AddShopPage = () => {
         <FormControl fullWidth style={{ width: "100px" }}>
           <InputLabel id="demo-simple-select-label">Gender</InputLabel>
           <Select
+           className="w-full"
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={gender}
@@ -120,6 +125,7 @@ const AddShopPage = () => {
         <FormControlLabel
           control={
             <Checkbox
+            className="w-full"
               // {...label}
               defaultChecked
               color="secondary"
@@ -132,6 +138,7 @@ const AddShopPage = () => {
         <FormControlLabel
           control={
             <Checkbox
+            className="w-full"
               // {...label}
               defaultChecked
               color="secondary"
@@ -144,6 +151,7 @@ const AddShopPage = () => {
         <FormControlLabel
           control={
             <Checkbox
+            className="w-full"
               // {...label}
               defaultChecked
               color="secondary"
@@ -156,6 +164,7 @@ const AddShopPage = () => {
         <FormControlLabel
           control={
             <Checkbox
+            className="w-full"
               // {...label}
               defaultChecked
               color="secondary"
@@ -167,6 +176,7 @@ const AddShopPage = () => {
         />
 
         <input
+         className="w-full"
           value={product.description}
           placeholder="Description"
           onChange={(e) =>
@@ -175,12 +185,14 @@ const AddShopPage = () => {
           type="text"
         />
         <input
+         className="w-full"
           value={product.image}
           placeholder="Image"
           onChange={(e) => setProduct({ ...product, image: e.target.value })}
           type="url"
         />
         <input
+         className="w-full"
           value={product.price}
           placeholder="Price"
           onChange={(e) =>

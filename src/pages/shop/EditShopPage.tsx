@@ -25,7 +25,6 @@ const EditShopPage = () => {
     almaty: "",
     moscow: "",
     sale: "",
-   
   });
 
   const nav = useNavigate();
@@ -48,7 +47,6 @@ const EditShopPage = () => {
         almaty,
         moscow,
         sale,
-        
       } = oneProduct;
 
       setProduct({
@@ -138,9 +136,12 @@ const EditShopPage = () => {
   };
 
   return (
-    <div>
-      <h2>Edit form</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="bg-gray-200 w-full h-[70vh] flex items-center justify-center">
+      <form
+        className="bg-white w-2/5 h-4/5 flex flex-col items-center justify-center rounded-lg p-20"
+        onSubmit={handleSubmit}
+      >
+        <h2 className="text-2xl">Edit form</h2>
         <input
           type="text"
           name="title"
@@ -244,7 +245,7 @@ const EditShopPage = () => {
           }
           label="Add to sales"
         />
-        
+
         <button type="submit">Save</button>
       </form>
     </div>
