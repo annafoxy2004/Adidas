@@ -13,7 +13,7 @@ const ShopPage = () => {
     <>
       <img src={cl} alt="cl" />
       <div className="shopPage pl-32 pr-32">
-        <div className="searchInp w-72 flex justify-between">
+        <div className="searchInp w-72 ">
 
         <SearchProduct/>
         </div>

@@ -34,6 +34,10 @@ const SalesPage = () => {
 
   const nav = useNavigate();
   const { id } = useParams();
+  
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   const saleProducts = products.filter((product) => product.sale === "on");
 

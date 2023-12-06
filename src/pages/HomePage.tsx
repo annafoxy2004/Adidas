@@ -88,28 +88,28 @@ const HomePage = () => {
           </p>
         </div>
       </section>
-      {/* <img src={cl} alt="cl" style={{ position: "relative" }} /> */}
+      <img src={cl} alt="cl" style={{ position: "relative" }} />
       <section className="trd-section flex flex-row justify-around m-10 pt-10 pb-10 max-md:flex-col">
-        <div className="card flex flex-col items-center">
+        <div className=" flex flex-col items-center">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_400,w_400/xcat_fw23_holiday_dec_shoes100andunder_glp_group_tcc_d_313e735c64.jpg" alt="" />
             <h3 className="font-bold pt-8">ICONIC LAST-MINUTE GIFTS</h3>
             <p>Don’t delay—grab these $100-and-under sneakers to win the season.</p>
             <Button color="secondary"><Link to={"/shop"}>shop now</Link> 
             </Button>
         </div>
-        <div className="card flex flex-col items-center">
+        <div className=" flex flex-col items-center">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_400,w_400/xcat_fw23_holiday_stocking_stuffers_dec_glp_tcc_d_cfeae80b2c.jpg" alt="" />
             <h3 className="font-bold pt-8">HOLIDAY BUZZER BEATERS</h3>
             <p>Don’t delay—grab these $100-and-under sneakers to win the season.</p>
             <Button color="secondary"><Link to={"/shop"}>shop now</Link></Button>
         </div>
-        <div className="card flex flex-col items-center">
+        <div className=" flex flex-col items-center">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_400,w_400/og136_fw23_og_reset_sustain_stansmith_tcc_2_d_c17684c8b5.jpg" alt="" />
             <h3 className="font-bold pt-8">FORUM</h3>
             <p>Don’t delay—grab these $100-and-under sneakers to win the season.</p>
             <Button color="secondary"><Link to={"/shop"}>shop now</Link></Button>
         </div>
-        <div className="card flex flex-col items-center">
+        <div className=" flex flex-col items-center">
             <img src="https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_400,w_400/og136_fw23_og_reset_sustain_samba_tcc_d_b15ae595fb.jpg" alt="" />
             <h3 className="font-bold pt-8">SAMBA</h3>
             <p>Don’t delay—grab these $100-and-under sneakers to win the season.</p>
