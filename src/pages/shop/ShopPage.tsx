@@ -5,16 +5,26 @@ import ProductFilter from "../../components/products/ProductFilter";
 import SearchProduct from "../../components/products/SearchProduct";
 //@ts-ignore
 import cl from "../../assets/bg_cl.svg"
+//@ts-ignore
+import det from "../../assets/det.svg"
 
 const ShopPage = () => {
   return (
     <>
-      <div className="shopPage flex flex-col justify-center items-center">
       <img src={cl} alt="cl" />
+      <div className="shopPage pl-32 pr-32">
+        <div className="searchInp w-72 flex justify-between">
+
+        <SearchProduct/>
+        </div>
         
-        <SearchProduct />
         <ProductFilter />
         <Product />
+        <div className="pag mb-20">
+
+        <ProductPagination />
+        </div>
+        <img src={det} alt="" />
       </div>
     </>
   );

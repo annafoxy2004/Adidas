@@ -20,14 +20,14 @@ const SearchProduct = () => {
   }, [searchVal]);
 
   return (
-    <div className="border-2 border-white">
+    <div >
       <TextField
         InputProps={{
           startAdornment: <SearchIcon sx={{ color: "white" }} />,
         }}
         onChange={(e) => setSearchVal(e.target.value)}
         placeholder="Search..."
-        sx={{ color: "white" }}
+        sx={{ color: "white", border: "3px solid",borderColor: "lime"  }}
         id="outlined-basic"
         variant="outlined"
       />
