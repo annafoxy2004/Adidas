@@ -6,7 +6,6 @@ export interface IAuth {
 
 export type AuthValuesTypes = {
   currentUser: boolean | null | string;
-  isAdmin: () => boolean;
   setCurrentUser: any;
   error: any;
   loading: boolean;

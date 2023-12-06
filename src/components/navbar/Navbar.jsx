@@ -6,15 +6,17 @@ import logo from "./logo.png";
 import { MenuBook } from "@mui/icons-material";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth/AuthContextProvider";
-import Button from '@mui/material/Button';
-import ClickAwayListener from '@mui/material/ClickAwayListener';
-import Grow from '@mui/material/Grow';
-import Paper from '@mui/material/Paper';
-import Popper from '@mui/material/Popper';
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-import Stack from '@mui/material/Stack';
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import Button from "@mui/material/Button";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Stack from "@mui/material/Stack";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import SearchProduct from "../../components/products/SearchProduct";
+import { getUserRole } from "../../helpers/functions";
 
 const pages = [{ title: "Products", link: "/", id: 1 }];
 
@@ -39,6 +41,7 @@ const settings = [
 ];
 
 function Navbar() {
+  const userRole = getUserRole();
   const navigate = useNavigate();
   const { currentUser, checkAuth, handleLogout, setCurrentUser } = useAuth();
 
@@ -51,7 +54,7 @@ function Navbar() {
   // }
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('email');
+    const storedUser = localStorage.getItem("email");
     if (storedUser) {
       setCurrentUser(storedUser);
     }
@@ -77,15 +80,14 @@ function Navbar() {
   };
 
   function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
+    if (event.key === "Tab") {
       event.preventDefault();
       setOpen(false);
-    } else if (event.key === 'Escape') {
+    } else if (event.key === "Escape") {
       setOpen(false);
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
   const prevOpen = React.useRef(open);
   React.useEffect(() => {
     if (prevOpen.current === true && open === false) {
@@ -95,10 +97,9 @@ function Navbar() {
     prevOpen.current = open;
   }, [open]);
 
-  
   return (
     <div>
-      <nav>
+      <nav className="navver">
         <div
           className="burger-btn"
           onClick={() => {
@@ -111,67 +112,76 @@ function Navbar() {
           <img className="nav_logo_img" src={logo} alt="logo" />
         </div>
         <div className="nav_auth flex justify-between">
-        <Link className="text-white p-3">
-            {currentUser ? currentUser: "No user"}
+          <Link className="text-white p-3">
+            {currentUser ? currentUser : "No user"}
           </Link>
           <div>
-        <Button
-          ref={anchorRef}
-          id="composition-button"
-          aria-controls={open ? 'composition-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleToggle}
-        >
-          <AccountCircleOutlinedIcon color="disabled" fontSize="large" />
-        </Button>
-        <Popper
-          open={open}
-          anchorEl={anchorRef.current}
-          role={undefined}
-          placement="bottom-start"
-          transition
-          disablePortal
-        >
-          {({ TransitionProps, placement }) => (
-            <Grow
-              {...TransitionProps}
-              style={{
-                transformOrigin:
-                  placement === 'bottom-start' ? 'left top' : 'left bottom',
-              }}
+            <Button
+              ref={anchorRef}
+              id="composition-button"
+              aria-controls={open ? "composition-menu" : undefined}
+              aria-expanded={open ? "true" : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle}
             >
-              <Paper>
-                <ClickAwayListener onClickAway={handleClose}>
-                  <MenuList
-                    autoFocusItem={open}
-                    id="composition-menu"
-                    aria-labelledby="composition-button"
-                    onKeyDown={handleListKeyDown}
-                  >
-                    <MenuItem onClick={handleClose}><Link to={"/register"} className="text-indigo-700">Register</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link to={"/login"} className="text-indigo-700">Login</Link></MenuItem>
-                    <MenuItem onClick={handleClose}><Link  to={"/"} onClick={() => handleLogout()} className="text-indigo-700">
-            Logout
-          </Link></MenuItem>
-                  </MenuList>
-                </ClickAwayListener>
-              </Paper>
-            </Grow>
-          )}
-        </Popper>
-      </div>
-          
-          
-          
-          
+              <AccountCircleOutlinedIcon color="secondary" fontSize="large" />
+            </Button>
+            <Popper
+              open={open}
+              anchorEl={anchorRef.current}
+              role={undefined}
+              placement="bottom-start"
+              transition
+              disablePortal
+            >
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{
+                    transformOrigin:
+                      placement === "bottom-start" ? "left top" : "left bottom",
+                  }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList
+                        autoFocusItem={open}
+                        id="composition-menu"
+                        aria-labelledby="composition-button"
+                        onKeyDown={handleListKeyDown}
+                      >
+                        <MenuItem onClick={handleClose}>
+                          <Link to={"/register"} className="text-indigo-700">
+                            Register
+                          </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>
+                          <Link to={"/login"} className="text-indigo-700">
+                            Login
+                          </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>
+                          <Link
+                            to={"/"}
+                            onClick={() => handleLogout()}
+                            className="text-indigo-700"
+                          >
+                            Logout
+                          </Link>
+                        </MenuItem>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+          </div>
         </div>
       </nav>
       <MenuBurger
         menuActive={menuActive}
         setMenuActive={setMenuActive}
         header={"Adidas"}
-        
       />
     </div>
   );

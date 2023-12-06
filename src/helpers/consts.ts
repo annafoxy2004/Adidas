@@ -1,28 +1,22 @@
-export const ADMINS = ["annafoxy@gmail.com"];
 
-export const API = "http://localhost:8000/products";
+export const API = "http://localhost:8000/product";
 
-export const categories = [
+export const genders = [
   {
     title: "All",
     value: "all",
     id: "1",
   },
   {
-    title: "Pets",
-    value: "pets",
+    title: "women",
+    value: "women",
     id: "2",
   },
   {
-    title: "Tech",
-    value: "tech",
+    title: "men",
+    value: "men",
     id: "3",
-  },
-  {
-    title: "Gum",
-    value: "gum",
-    id: "4",
-  },
+  }
 ];
 
-export const LIMIT = 2;
+export const LIMIT = 8;

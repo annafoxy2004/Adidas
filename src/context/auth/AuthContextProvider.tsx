@@ -6,12 +6,10 @@ import React, {
   SetStateAction,
   Dispatch,
   useContext,
-  useEffect,
 } from "react";
 import { AuthValuesTypes, IAuth } from "./auth.types";
-import { ADMINS } from "../../helpers/consts";
 import { useNavigate } from "react-router-dom";
-import { notify } from "../../components/alerts/Toastify";
+import { notify, NOTIFY_TYPES } from "../../components/alerts/Toastify";
 
 export const authContext = createContext<AuthValuesTypes | null>(null);
 
@@ -23,7 +21,7 @@ export function useAuth() {
   return context;
 }
 
-const API = "http://34.173.115.25/api/v1";
+const AUTH_API = "http://34.173.115.25/api/v1";
 
 const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
   const [currentUser, setCurrentUser] = useState<string | boolean>(false);
@@ -37,12 +35,14 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
   ) {
     setLoading(true);
     try {
-      const res = await axios.post(`${API}/account/register/`, formData);
+      const res = await axios.post(`${AUTH_API}/account/register/`, formData);
       navigate("/");
       console.log(res, "register response");
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       setError(err.response?.data?.detail || "An error occurred");
       notify(err.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
       console.log(err);
     } finally {
       setLoading(false);
@@ -55,18 +55,21 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
     navigate: (path: string) => void
   ) {
     try {
-      const res = await axios.post(`${API}/account/login/`, formData);
+      const res = await axios.post(`${AUTH_API}/account/login/`, formData);
       localStorage.getItem("email");
       localStorage.setItem("tokens", JSON.stringify(res.data));
-      localStorage.setItem("email", email);
+      let user = JSON.stringify(email);
+      localStorage.setItem("email", user);
       setCurrentUser(email);
-      checkAuth()
+      checkAuth();
       console.log(res);
       navigate("/");
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       console.log(err);
       setError(err.response.data.detail || "An error occurred");
-      notify(err.code.split("/")[1], "error");
+      // notify(err.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
     }
   }
 
@@ -81,7 +84,7 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
         },
       };
       const res = await axios.post(
-        `${API}/account/token/refresh/`,
+        `${AUTH_API}/account/token/refresh/`,
         {
           refresh: tokens.refresh,
         },
@@ -96,9 +99,11 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       );
       const email = localStorage.getItem("email") || "";
       setCurrentUser(email);
+      notify("success", NOTIFY_TYPES.success);
     } catch (err: any) {
       console.log(err);
       handleLogout();
+      notify("error", NOTIFY_TYPES.error);
     } finally {
       setLoading(false);
     }
@@ -111,22 +116,15 @@ const AuthContextProvider = ({ children }: { children: ReactNode } & IAuth) => {
       setCurrentUser(false);
       navigate("/");
       console.log("logout");
+      notify("success", NOTIFY_TYPES.success);
     } catch (e: any) {
-      notify(e.code.split("/")[1], "error");
+      // notify(e.code.split("/")[1], "error");
+      notify("error", NOTIFY_TYPES.error);
     }
-  }
-
-  function isAdmin() {
-    let user = localStorage.getItem("email")
-    if (!user) {
-      return false;
-    }
-    return ADMINS.includes(user);
   }
 
   const contextValue: AuthValuesTypes = {
     currentUser,
-    isAdmin,
     error,
     loading,
     setError: setError as Dispatch<SetStateAction<string | boolean>>,

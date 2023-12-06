@@ -12,7 +12,7 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  top: 50px;
+  /* top: 50px; */
   left: 0;
   transition: all 0.2s;
   z-index: 999;
@@ -47,16 +47,16 @@
   text-align: center;
 }
 
-ul li a {
+.ull li a {
   color: azure;
 }
 
-ul li {
+.ull li {
   display: flex;
   align-items: center;
 }
 
-ul {
+.ull {
   text-align: center;
   display: flex;
   flex-direction: column;
